@@ -5,19 +5,25 @@ package com.calata;
  */
 public class Divisor{
 
-    public static int dividir(int dividendo, int divisor){
+    public static int dividirRecursivo(int dividendo, int divisor){
         int resto = dividendo-divisor;
         if(resto < 0){
             return 0;
-        }
-        if(resto < divisor){
-            return 1;
         }else{
-            return 1 + dividir(resto,divisor);
+            return 1 + dividirRecursivo(resto,divisor);
         }
     }
 
-    /*public static Integer dividirInteger(Integer dividendo, Integer divisor){
-        int divi = dividendo;
-    }*/
+    public static int dividirIterativo(int dividendo,int divisor){
+        int resto = dividendo - divisor;
+        int endo = dividendo;
+        int isor = divisor;
+        int cocciente = 0;
+        while(endo-isor >= 0){
+            cocciente++;
+            resto = endo - isor;
+            endo = resto;
+        }
+        return cocciente;
+    }
 }

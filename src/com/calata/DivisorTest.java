@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 
 public class DivisorTest {
 
+
     List<Integer> dividendosPrueba = new ArrayList<>();
     List<Integer> divisoresPrueba = new ArrayList<>();
 
@@ -29,13 +30,22 @@ public class DivisorTest {
 
 
     @Test
-    public void dividir() throws Exception {
+    public void dividirRecursivo() throws Exception {
         for(Integer dividendos : dividendosPrueba){
             for(Integer divisores : divisoresPrueba){
-                assertEquals((int)(dividendos/divisores),Divisor.dividir(dividendos,divisores));
+                assertEquals((int)(dividendos/divisores),Divisor.dividirRecursivo(dividendos,divisores));
             }
         }
 
+    }
+
+    @Test
+    public void dividirIterativo() throws Exception {
+        for(Integer dividendos : dividendosPrueba){
+            for(Integer divisores : divisoresPrueba){
+                assertEquals((int)(dividendos/divisores),Divisor.dividirIterativo(dividendos,divisores));
+            }
+        }
     }
 
 }
