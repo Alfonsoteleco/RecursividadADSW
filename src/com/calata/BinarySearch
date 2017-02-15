@@ -1,0 +1,32 @@
+/**
+ * Created by fons on 15/02/2017.
+ */
+import org.junit.Before;
+import org.junit.Test;
+public class BinarySearch1 {
+    public static int binarySearch(int [] list, int first,int last, int value){
+        // Tomamos -1 como valor ya que sino se haria un buble infinito y es imposible que haya una posicion -1 en un array
+        if (list.length == 0){
+            System.out.print("La lista esta vacia no hay nada que encontrar");
+            return -1;
+        }
+
+
+       int medio = (first+last)/2;
+        if (list[medio] == value) {
+            return medio;
+        }
+        int newlast =last;
+        int newfirst= first;
+        if(list[first] > list[medio] && value < list[medio]){
+            newlast= medio;
+            return binarySearch(list,first,newlast, value);
+        }
+        if(list[last] < list[medio] && value > list[medio]){
+            newfirst = first;
+           return binarySearch(list,newfirst,last, value);
+        }
+
+        return -1;
+    }
+}
